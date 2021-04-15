@@ -88,14 +88,14 @@ public class DateFormatPriorityTest extends TestCase {
     }
 
     public void test_for_DEFFAULT_DATE_FORMAT() {
-        String defaultDateFormat = JSON.DEFFAULT_DATE_FORMAT;
+        String defaultDateFormat = JSON.DEFAULT_DATE_FORMAT;
 
-        JSON.DEFFAULT_DATE_FORMAT = "MM-dd";
+        JSON.DEFAULT_DATE_FORMAT = "MM-dd";
         VO vo = new VO();
         vo.setDate(calendar.getTime());
 
         String jsonString = JSON.toJSONString(vo, SerializerFeature.WriteDateUseDateFormat);
-        JSON.DEFFAULT_DATE_FORMAT = defaultDateFormat;
+        JSON.DEFAULT_DATE_FORMAT = defaultDateFormat;
 
         assertEquals("{\"date\":\"10-26\"}", jsonString);
     }
@@ -148,14 +148,14 @@ public class DateFormatPriorityTest extends TestCase {
 
     //Annotation + DEFFAULT_DATE_FORMAT (Annotation优先)
     public void test_priority_03() throws Exception {
-        String defaultDateFormat = JSON.DEFFAULT_DATE_FORMAT;
+        String defaultDateFormat = JSON.DEFAULT_DATE_FORMAT;
 
-        JSON.DEFFAULT_DATE_FORMAT = "MM-dd";
+        JSON.DEFAULT_DATE_FORMAT = "MM-dd";
         VO2 vo = new VO2();
         vo.setDate(calendar.getTime());
 
         String jsonString = JSON.toJSONString(vo, SerializerFeature.WriteDateUseDateFormat);
-        JSON.DEFFAULT_DATE_FORMAT = defaultDateFormat;
+        JSON.DEFAULT_DATE_FORMAT = defaultDateFormat;
 
         assertEquals("{\"date\":\"1995.10-26\"}", jsonString);
     }

@@ -3,7 +3,6 @@ package com.alibaba.json.bvt.issue_2100;
 import com.alibaba.fastjson.JSON;
 import junit.framework.TestCase;
 
-import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -39,7 +38,7 @@ public class Issue2156 extends TestCase {
 
     public void test_for_issue_time() throws Exception {
         java.sql.Time date = java.sql.Time.valueOf("12:13:14");
-        String str = JSON.toJSONStringWithDateFormat(date, JSON.DEFFAULT_DATE_FORMAT);
+        String str = JSON.toJSONStringWithDateFormat(date, JSON.DEFAULT_DATE_FORMAT);
         assertEquals("\"12:13:14\"", str);
     }
 }
